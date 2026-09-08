@@ -11,3 +11,7 @@ func _on_body_entered(body: Node) -> void:
 		explosion_instance.global_position = global_position
 		get_tree().get_root().add_child(explosion_instance)
 	queue_free()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
