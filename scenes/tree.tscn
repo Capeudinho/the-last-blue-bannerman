@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bnbut3ktcs8mk"]
+
+[ext_resource type="Texture2D" uid="uid://b1htnpwl2uyku" path="res://assets/sprites/tree.png" id="1_avsvi"]
+[ext_resource type="Script" uid="uid://c3xbuxtk80wvi" path="res://scripts/tree.gd" id="2_vplca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avsvi"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(0, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vplca"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(192, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viusy"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(384, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd6xs"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(576, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ake3r"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(768, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18mvg"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(960, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmmp0"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(1152, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26wl"]
+atlas = ExtResource("1_avsvi")
+region = Rect2(1344, 0, 192, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vslbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avsvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vplca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viusy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd6xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ake3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18mvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmmp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m26wl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tree" type="AnimatedSprite2D" unique_id=1964025316]
+z_index = 2
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_vslbo")
+autoplay = "default"
+frame_progress = 0.71709734
+script = ExtResource("2_vplca")
