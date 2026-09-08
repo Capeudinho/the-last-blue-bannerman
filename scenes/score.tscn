@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bvl0douoofvu1"]
+
+[ext_resource type="Texture2D" uid="uid://bn8g41expbdof" path="res://assets/sprites/ribbon_tileset.png" id="1_8juob"]
+[ext_resource type="Script" uid="uid://uqpcxvd5fdw3" path="res://scripts/score.gd" id="1_plgac"]
+[ext_resource type="FontFile" uid="uid://df314dt82gjw0" path="res://assets/fonts/alagard.ttf" id="3_plgac"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bak1h"]
+texture = ExtResource("1_8juob")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+2:7/0 = 0
+4:7/0 = 0
+0:8/0 = 0
+2:8/0 = 0
+4:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+4:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vslbo"]
+tile_size = Vector2i(64, 64)
+sources/2 = SubResource("TileSetAtlasSource_bak1h")
+
+[node name="Score" type="Control" unique_id=1134606405]
+custom_minimum_size = Vector2(192, 64)
+custom_maximum_size = Vector2(192, 64)
+layout_mode = 3
+anchor_right = 0.16700001
+anchor_bottom = 0.09900001
+offset_right = -0.38401794
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plgac")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1196962283]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_vslbo")
+collision_enabled = false
+
+[node name="Label" type="Label" parent="." unique_id=1130865492]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_plgac")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -15,12 +15,26 @@ run/main_scene="uid://5etpgi5su5rw"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ScoreManager="*uid://bd33yfgvrqb7p"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://utpeyp2a3k6t"
 mouse_cursor/custom_image_hotspot=Vector2(22, 17)
+
+[global_group]
+
+enemies=""
+entries=""
+players=""
+
+[gui]
+
+theme/default_font_antialiasing=0
 
 [input]
 

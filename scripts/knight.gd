@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = get_node("/root/Arena/Player")
+const DUST = preload("res://scenes/dust.tscn")
+
+@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("players")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_animation_player: AnimationPlayer = $AttackAnimationPlayer
 @onready var hurtbox: Area2D = $Hurtbox
-
-const DUST = preload("res://scenes/dust.tscn")
 
 var is_flipped = false
 var is_moving = false
@@ -21,6 +21,7 @@ var current_attack_time = 0
 var attack_damage = 1
 var maximum_health = 2
 var current_health = maximum_health
+var reward_score = 1
 
 func _physics_process(delta: float) -> void:
 	
@@ -35,10 +36,11 @@ func _physics_process(delta: float) -> void:
 			attack_animation_player.play("attack")
 		elif current_idle_time == 0 and !is_moving:
 			is_moving = true
-			current_move_time = move_time
+			current_move_time = randf_range(move_time * 0.5, move_time)
 		elif current_move_time == 0 and is_moving:
 			is_moving = false
-			current_idle_time = idle_time
+			@warning_ignore("integer_division")
+			current_idle_time = randf_range(idle_time * 0.5, idle_time)
 
 	var move_direction = global_position.direction_to(player.global_position)
 	velocity = move_speed * move_direction if is_moving else Vector2.ZERO
@@ -62,6 +64,7 @@ func take_damage(damage: int) -> void:
 		var dust_instance = DUST.instantiate()
 		dust_instance.global_position = global_position
 		get_tree().get_root().add_child(dust_instance)
+		ScoreManager.increase_score(reward_score)
 		queue_free()
 
 func attack() -> void:

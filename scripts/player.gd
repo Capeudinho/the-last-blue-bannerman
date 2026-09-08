@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
+const ARROW = preload("res://scenes/arrow.tscn")
+const DUST = preload("res://scenes/dust.tscn")
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_animation_player: AnimationPlayer = $DashAnimationPlayer
 @onready var shoot_animation_player: AnimationPlayer = $ShootAnimationPlayer
-
-const ARROW = preload("res://scenes/arrow.tscn")
 
 var is_flipped = false
 var is_dashing = false
@@ -14,7 +15,9 @@ var shoot_position = null
 var move_speed = 400
 var dash_speed = 1600
 var shoot_speed = 1600
-var attack_damage = 1
+var shoot_damage = 1
+var maximum_health = 1
+var current_health = maximum_health
 
 func _physics_process(_delta: float) -> void:
 	
@@ -49,7 +52,11 @@ func _on_shoot_animation_player_animation_finished(anim_name: StringName) -> voi
 		shoot_position = null
 		
 func take_damage(damage: int) -> void:
-	print("ouch")
+	current_health = current_health - damage
+	if current_health <= 0:
+		var dust_instance = DUST.instantiate()
+		dust_instance.global_position = global_position
+		get_tree().get_root().add_child(dust_instance)
 
 func shoot() -> void:
 	var shoot_direction = global_position.direction_to(shoot_position)
@@ -57,5 +64,5 @@ func shoot() -> void:
 	arrow_instance.global_position = global_position
 	arrow_instance.look_at(shoot_position)
 	arrow_instance.apply_impulse(shoot_speed * shoot_direction)
-	arrow_instance.attack_damage = attack_damage
+	arrow_instance.contact_damage = shoot_damage
 	get_tree().get_root().add_child(arrow_instance)
