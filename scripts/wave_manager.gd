@@ -13,10 +13,10 @@ const ARCHER = preload("res://scenes/archer.tscn")
 
 var is_interval = false
 var is_wave = false
-var interval_time = 10
-var start_time = 5
-var wave_time = 5
-var wave_total = 5
+var interval_time = 8
+var start_time = 4
+var wave_time = 4
+var wave_total = 4
 var wave_count = 0
 var current_wave_count = 0
 

@@ -10,8 +10,8 @@ func _ready() -> void:
 
 func _on_play_ribbon_button_pressed() -> void:
 	var arena = load("res://scenes/arena.tscn")
-	get_tree().change_scene_to_packed(arena)
+	TransitionManager.run_transition(arena, 2, Color("b65555"))
 
 func _on_main_ribbon_button_pressed() -> void:
 	var main_menu = load("res://scenes/main_menu.tscn")
-	get_tree().change_scene_to_packed(main_menu)
+	TransitionManager.run_transition(main_menu, 2, Color("b65555"))
