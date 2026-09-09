@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvl0douoofvu1"]
 
 [ext_resource type="Texture2D" uid="uid://bn8g41expbdof" path="res://assets/sprites/ribbon_tileset.png" id="1_8juob"]
-[ext_resource type="Script" uid="uid://uqpcxvd5fdw3" path="res://scripts/score.gd" id="1_plgac"]
+[ext_resource type="Script" uid="uid://uqpcxvd5fdw3" path="res://scripts/ribbon_display.gd" id="1_plgac"]
 [ext_resource type="FontFile" uid="uid://df314dt82gjw0" path="res://assets/fonts/alagard.ttf" id="3_plgac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bak1h"]
@@ -42,7 +42,7 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/2 = SubResource("TileSetAtlasSource_bak1h")
 
-[node name="Score" type="Control" unique_id=1134606405]
+[node name="RibbonScore" type="Control" unique_id=1134606405]
 custom_minimum_size = Vector2(192, 64)
 custom_maximum_size = Vector2(192, 64)
 layout_mode = 3
@@ -52,6 +52,8 @@ offset_right = -0.38401794
 offset_bottom = -0.15200806
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_plgac")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1196962283]
@@ -61,7 +63,7 @@ collision_enabled = false
 
 [node name="Label" type="Label" parent="." unique_id=1130865492]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

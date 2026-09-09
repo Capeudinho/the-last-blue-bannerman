@@ -3,10 +3,13 @@ extends CharacterBody2D
 const ARROW = preload("res://scenes/arrow.tscn")
 const DUST = preload("res://scenes/dust.tscn")
 
+signal player_died()
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_animation_player: AnimationPlayer = $DashAnimationPlayer
 @onready var shoot_animation_player: AnimationPlayer = $ShootAnimationPlayer
 
+var is_dead = false
 var is_flipped = false
 var is_dashing = false
 var is_shooting = false
@@ -21,6 +24,9 @@ var current_health = maximum_health
 
 func _physics_process(_delta: float) -> void:
 	
+	if is_dead:
+		return
+	
 	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = dash_speed * dash_direction if is_dashing else move_speed * move_direction
 	move_and_slide()
@@ -28,11 +34,13 @@ func _physics_process(_delta: float) -> void:
 	animated_sprite_2d.play("shoot" if is_shooting else "move" if velocity.length() > 0 else "idle")
 	if global_position.x < get_global_mouse_position().x == is_flipped:
 		is_flipped = !is_flipped
-		scale.x = -scale.x
+		animated_sprite_2d.flip_h = is_flipped
 	
 	if Input.is_action_just_pressed("dash") and !is_dashing:
 		is_dashing = true
 		dash_direction = global_position.direction_to(get_global_mouse_position())
+		set_collision_layer_value(1, false)
+		set_collision_layer_value(3, true)
 		dash_animation_player.play("dash")
 		
 	if Input.is_action_pressed("shoot") and !is_shooting:
@@ -44,7 +52,8 @@ func _on_dash_animation_player_animation_finished(anim_name: StringName) -> void
 	if anim_name == "dash":
 		is_dashing = false
 		dash_direction = null
-
+		set_collision_layer_value(1, true)
+		set_collision_layer_value(3, false)
 
 func _on_shoot_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "shoot":
@@ -54,9 +63,12 @@ func _on_shoot_animation_player_animation_finished(anim_name: StringName) -> voi
 func take_damage(damage: int) -> void:
 	current_health = current_health - damage
 	if current_health <= 0:
+		is_dead = true
+		visible = false
+		player_died.emit()
 		var dust_instance = DUST.instantiate()
 		dust_instance.global_position = global_position
-		get_tree().get_root().add_child(dust_instance)
+		get_tree().get_root().get_node("Arena").add_child(dust_instance)
 
 func shoot() -> void:
 	var shoot_direction = global_position.direction_to(shoot_position)
@@ -65,4 +77,4 @@ func shoot() -> void:
 	arrow_instance.look_at(shoot_position)
 	arrow_instance.apply_impulse(shoot_speed * shoot_direction)
 	arrow_instance.contact_damage = shoot_damage
-	get_tree().get_root().add_child(arrow_instance)
+	get_tree().get_root().get_node("Arena").add_child(arrow_instance)

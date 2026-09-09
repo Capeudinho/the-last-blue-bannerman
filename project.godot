@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="The Last Blue Bannerman"
-run/main_scene="uid://5etpgi5su5rw"
+run/main_scene="uid://clnpm1e7clvfv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

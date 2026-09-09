@@ -1,9 +1,12 @@
 extends Node
 
-var score = 0
-
 signal score_increased(value: int)
 
-func increase_score(value: int) -> void:
-	score = score + value
+var score = 0
+
+func increase_score() -> void:
+	score = score + 1
 	score_increased.emit(score)
+
+func reset_score() -> void:
+	score = 0

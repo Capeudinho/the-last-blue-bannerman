@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bl511y6jwmt0o"]
 
-[ext_resource type="PackedScene" uid="uid://bvl0douoofvu1" path="res://scenes/score.tscn" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://bvl0douoofvu1" path="res://scenes/ribbon_display.tscn" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://0jhudkwv76an" path="res://scripts/hud.gd" id="1_oo0fn"]
 
 [node name="HUD" type="CanvasLayer" unique_id=860072853]
+script = ExtResource("1_oo0fn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=208755272]
 anchors_preset = 5
@@ -17,5 +19,5 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Score" parent="MarginContainer" unique_id=1134606405 instance=ExtResource("1_ahhtf")]
+[node name="RibbonDisplay" parent="MarginContainer" unique_id=1134606405 instance=ExtResource("1_ahhtf")]
 layout_mode = 2

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://kr2pswytlc3r"]
+
+[ext_resource type="Texture2D" uid="uid://bn8g41expbdof" path="res://assets/sprites/ribbon_tileset.png" id="1_mi6dp"]
+[ext_resource type="Script" uid="uid://06uj5raw1lnj" path="res://scripts/ribbon_button.gd" id="1_vbhdb"]
+[ext_resource type="FontFile" uid="uid://df314dt82gjw0" path="res://assets/fonts/alagard.ttf" id="2_rhj8v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rhj8v"]
+texture = ExtResource("1_mi6dp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+2:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+0:7/0 = 0
+2:7/0 = 0
+4:7/0 = 0
+0:8/0 = 0
+2:8/0 = 0
+4:8/0 = 0
+0:9/0 = 0
+2:9/0 = 0
+4:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vslbo"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_rhj8v")
+
+[node name="RibbonButton" type="TextureButton" unique_id=1797599478]
+custom_minimum_size = Vector2(320, 64)
+custom_maximum_size = Vector2(320, 64)
+anchors_preset = -1
+anchor_right = 0.27800003
+anchor_bottom = 0.09900001
+offset_right = -0.25604248
+offset_bottom = -0.15200806
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_vbhdb")
+
+[node name="TileMapLayerBlue" type="TileMapLayer" parent="." unique_id=108405035]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 2, 0, 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_vslbo")
+
+[node name="TileMapLayerRed" type="TileMapLayer" parent="." unique_id=599812190]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 3, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 2, 0, 3, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0, 3, 0, 0, 0)
+tile_set = SubResource("TileSet_vslbo")
+
+[node name="TileMapLayerBlack" type="TileMapLayer" parent="." unique_id=909820690]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 9, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 9, 0, 0, 0, 3, 0, 0, 0, 1, 0, 2, 0, 9, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0, 9, 0, 0, 0)
+tile_set = SubResource("TileSet_vslbo")
+
+[node name="Label" type="Label" parent="." unique_id=2064598866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_rhj8v")
+theme_override_font_sizes/font_size = 32
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

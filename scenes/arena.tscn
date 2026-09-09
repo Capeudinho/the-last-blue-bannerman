@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://5etpgi5su5rw"]
 
+[ext_resource type="Script" uid="uid://jjhsowm2t2p3" path="res://scripts/arena.gd" id="1_4ag8t"]
 [ext_resource type="PackedScene" uid="uid://cwuhdfkrk6loc" path="res://scenes/player.tscn" id="1_e05a3"]
 [ext_resource type="Texture2D" uid="uid://dfvwhueb8nqpx" path="res://assets/sprites/map_tileset.png" id="1_wl4x5"]
 [ext_resource type="PackedScene" uid="uid://bnbut3ktcs8mk" path="res://scenes/tree.tscn" id="3_olpmc"]
@@ -92,6 +93,7 @@ b = Vector2(1024, -1024)
 
 [node name="Arena" type="Node2D" unique_id=1440401302]
 y_sort_enabled = true
+script = ExtResource("1_4ag8t")
 
 [node name="Player" parent="." unique_id=218068341 instance=ExtResource("1_e05a3")]
 
@@ -3263,7 +3265,7 @@ position = Vector2(1792, 0)
 position = Vector2(1920, 0)
 
 [node name="CharacterBoundaries" type="StaticBody2D" parent="Map" unique_id=626016933]
-collision_layer = 48
+collision_layer = 240
 collision_mask = 0
 
 [node name="Right" type="CollisionShape2D" parent="Map/CharacterBoundaries" unique_id=1909811104]
@@ -3304,70 +3306,85 @@ shape = SubResource("SegmentShape2D_7i5t5")
 [node name="WaveManager" type="Node2D" parent="Map" unique_id=1111944081]
 script = ExtResource("4_xdvfk")
 
-[node name="Marker2D" type="Marker2D" parent="Map/WaveManager" unique_id=1451688536 groups=["entries"]]
+[node name="Entries" type="Node2D" parent="Map/WaveManager" unique_id=853227014]
+
+[node name="Marker2D" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1451688536 groups=["entries"]]
 position = Vector2(896, 0)
 
-[node name="Marker2D2" type="Marker2D" parent="Map/WaveManager" unique_id=2117364669 groups=["entries"]]
+[node name="Marker2D2" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=2117364669 groups=["entries"]]
 position = Vector2(896, -128)
 
-[node name="Marker2D3" type="Marker2D" parent="Map/WaveManager" unique_id=1384281062 groups=["entries"]]
+[node name="Marker2D3" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1384281062 groups=["entries"]]
 position = Vector2(896, -256)
 
-[node name="Marker2D4" type="Marker2D" parent="Map/WaveManager" unique_id=643253940 groups=["entries"]]
+[node name="Marker2D4" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=643253940 groups=["entries"]]
 position = Vector2(896, -384)
 
-[node name="Marker2D5" type="Marker2D" parent="Map/WaveManager" unique_id=117275428 groups=["entries"]]
+[node name="Marker2D5" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=117275428 groups=["entries"]]
 position = Vector2(896, -512)
 
-[node name="Marker2D6" type="Marker2D" parent="Map/WaveManager" unique_id=1652625328 groups=["entries"]]
+[node name="Marker2D6" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1652625328 groups=["entries"]]
 position = Vector2(896, -640)
 
-[node name="Marker2D7" type="Marker2D" parent="Map/WaveManager" unique_id=1221912908 groups=["entries"]]
+[node name="Marker2D7" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1221912908 groups=["entries"]]
 position = Vector2(896, 128)
 
-[node name="Marker2D8" type="Marker2D" parent="Map/WaveManager" unique_id=837903908 groups=["entries"]]
+[node name="Marker2D8" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=837903908 groups=["entries"]]
 position = Vector2(896, 256)
 
-[node name="Marker2D9" type="Marker2D" parent="Map/WaveManager" unique_id=1489378047 groups=["entries"]]
+[node name="Marker2D9" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1489378047 groups=["entries"]]
 position = Vector2(896, 384)
 
-[node name="Marker2D10" type="Marker2D" parent="Map/WaveManager" unique_id=1356808234 groups=["entries"]]
+[node name="Marker2D10" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1356808234 groups=["entries"]]
 position = Vector2(896, 512)
 
-[node name="Marker2D11" type="Marker2D" parent="Map/WaveManager" unique_id=1547128161 groups=["entries"]]
+[node name="Marker2D11" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1547128161 groups=["entries"]]
 position = Vector2(896, 640)
 
-[node name="Marker2D12" type="Marker2D" parent="Map/WaveManager" unique_id=1706206730 groups=["entries"]]
+[node name="Marker2D12" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1706206730 groups=["entries"]]
 position = Vector2(-896, 0)
 
-[node name="Marker2D13" type="Marker2D" parent="Map/WaveManager" unique_id=1207983760 groups=["entries"]]
+[node name="Marker2D13" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1207983760 groups=["entries"]]
 position = Vector2(-896, -128)
 
-[node name="Marker2D14" type="Marker2D" parent="Map/WaveManager" unique_id=471938636 groups=["entries"]]
+[node name="Marker2D14" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=471938636 groups=["entries"]]
 position = Vector2(-896, -256)
 
-[node name="Marker2D15" type="Marker2D" parent="Map/WaveManager" unique_id=23045662 groups=["entries"]]
+[node name="Marker2D15" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=23045662 groups=["entries"]]
 position = Vector2(-896, -384)
 
-[node name="Marker2D16" type="Marker2D" parent="Map/WaveManager" unique_id=246807288 groups=["entries"]]
+[node name="Marker2D16" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=246807288 groups=["entries"]]
 position = Vector2(-896, -512)
 
-[node name="Marker2D17" type="Marker2D" parent="Map/WaveManager" unique_id=699201123 groups=["entries"]]
+[node name="Marker2D17" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=699201123 groups=["entries"]]
 position = Vector2(-896, -640)
 
-[node name="Marker2D18" type="Marker2D" parent="Map/WaveManager" unique_id=2123966719 groups=["entries"]]
+[node name="Marker2D18" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=2123966719 groups=["entries"]]
 position = Vector2(-896, 128)
 
-[node name="Marker2D19" type="Marker2D" parent="Map/WaveManager" unique_id=586880742 groups=["entries"]]
+[node name="Marker2D19" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=586880742 groups=["entries"]]
 position = Vector2(-896, 256)
 
-[node name="Marker2D20" type="Marker2D" parent="Map/WaveManager" unique_id=1541739949 groups=["entries"]]
+[node name="Marker2D20" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1541739949 groups=["entries"]]
 position = Vector2(-896, 384)
 
-[node name="Marker2D21" type="Marker2D" parent="Map/WaveManager" unique_id=1000768470 groups=["entries"]]
+[node name="Marker2D21" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1000768470 groups=["entries"]]
 position = Vector2(-896, 512)
 
-[node name="Marker2D22" type="Marker2D" parent="Map/WaveManager" unique_id=1200068053 groups=["entries"]]
+[node name="Marker2D22" type="Marker2D" parent="Map/WaveManager/Entries" unique_id=1200068053 groups=["entries"]]
 position = Vector2(-896, 640)
 
+[node name="IntervalTimer" type="Timer" parent="Map/WaveManager" unique_id=439204277]
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="Map/WaveManager" unique_id=1671095856]
+one_shot = true
+
 [node name="HUD" parent="." unique_id=860072853 instance=ExtResource("5_7ft05")]
+
+[node name="EndTimer" type="Timer" parent="." unique_id=1797934963]
+one_shot = true
+
+[connection signal="timeout" from="Map/WaveManager/IntervalTimer" to="Map/WaveManager" method="_on_interval_timer_timeout"]
+[connection signal="timeout" from="Map/WaveManager/WaveTimer" to="Map/WaveManager" method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

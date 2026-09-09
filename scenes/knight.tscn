@@ -197,9 +197,17 @@ shape = SubResource("RectangleShape2D_dp28g")
 libraries/ = SubResource("AnimationLibrary_5fsgc")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=288337563]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=564190241]
 position = Vector2(40, 0)
 shape = SubResource("RectangleShape2D_vslbo")
 
+[node name="ActionTimer" type="Timer" parent="." unique_id=1109605497]
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=482582973]
+
 [connection signal="animation_finished" from="AttackAnimationPlayer" to="." method="_on_attack_animation_player_animation_finished"]
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dha5577cbbcv6"]
+
+[ext_resource type="Script" uid="uid://ck82v8nd1qjs6" path="res://scripts/game_over_menu.gd" id="1_6ebp1"]
+[ext_resource type="FontFile" uid="uid://df314dt82gjw0" path="res://assets/fonts/alagard.ttf" id="2_cwb3k"]
+[ext_resource type="PackedScene" uid="uid://kr2pswytlc3r" path="res://scenes/ribbon_button.tscn" id="3_ccgoi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vslbo"]
+bg_color = Color(0.7137255, 0.33333334, 0.33333334, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vslbo"]
+
+[node name="GameOverMenu" type="Control" unique_id=1144743284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ebp1")
+
+[node name="Panel" type="Panel" parent="." unique_id=183461226]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vslbo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=668930246]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1913256329]
+layout_mode = 2
+
+[node name="TitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1934609118]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_cwb3k")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wave amp=8 freq=8]You Died At Last[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=109537711]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vslbo")
+
+[node name="MessageRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1286334301]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_cwb3k")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Text"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=679053705]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vslbo")
+
+[node name="PlayRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=1797599478 instance=ExtResource("3_ccgoi")]
+layout_mode = 2
+text = "Fight Again"
+color = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1164805656]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vslbo")
+
+[node name="MainRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=271838636 instance=ExtResource("3_ccgoi")]
+layout_mode = 2
+text = "Back To Menu"
+color = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayRibbonButton" to="." method="_on_play_ribbon_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainRibbonButton" to="." method="_on_main_ribbon_button_pressed"]

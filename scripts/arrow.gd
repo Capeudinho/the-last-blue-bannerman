@@ -9,5 +9,5 @@ func _on_body_entered(body: Node) -> void:
 		body.take_damage(contact_damage)
 		var explosion_instance = EXPLOSION.instantiate()
 		explosion_instance.global_position = global_position
-		get_tree().get_root().add_child(explosion_instance)
+		get_tree().get_root().get_node("Arena").add_child(explosion_instance)
 	queue_free()
