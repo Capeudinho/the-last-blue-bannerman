@@ -21,12 +21,12 @@ var is_reaching = false
 var is_attacking = false
 var can_move = true
 var can_attack = true
-var move_speed = 200
-var idle_time = 2
+var move_speed = 300
+var idle_time = 1
 var move_time = 4
-var attack_time = 1
+var attack_time = 0.5
 var attack_damage = 1
-var maximum_health = 2
+var maximum_health = 1
 var current_health = maximum_health
 
 func _physics_process(_delta: float) -> void:

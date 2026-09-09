@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
 const DUST = preload("res://scenes/dust.tscn")
+const ATTACK_START = preload("res://assets/audios/attack_start.ogg")
+const ATTACK_HIT = preload("res://assets/audios/attack_hit.ogg")
+const ATTACK_KILL = preload("res://assets/audios/attack_kill.ogg")
 
+@onready var arena: Node2D = get_tree().get_root().get_node("Arena")
+@onready var audio_manager: Node2D = arena.get_node("Map/AudioManager")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("players")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_animation_player: AnimationPlayer = $AttackAnimationPlayer
@@ -18,10 +23,10 @@ var can_move = true
 var can_attack = true
 var move_speed = 100
 var idle_time = 2
-var move_time = 4
+var move_time = 6
 var attack_time = 0.5
-var attack_damage = 1
-var maximum_health = 2
+var attack_damage = 2
+var maximum_health = 3
 var current_health = maximum_health
 
 func _physics_process(_delta: float) -> void:
@@ -35,6 +40,7 @@ func _physics_process(_delta: float) -> void:
 			is_attacking = true
 			is_moving = false
 			attack_animation_player.play("attack")
+			audio_manager.play_audio(ATTACK_START, global_position)
 		elif can_move and !is_moving:
 			is_moving = true
 			action_timer.start(randf_range(move_time * 0.5, move_time))
@@ -66,15 +72,17 @@ func _on_action_timer_timeout() -> void:
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
 
-func take_damage(damage: int) -> void:
-	current_health = current_health - damage
-	if current_health <= 0:
+func take_damage(damage: int) -> int:
+	current_health = max(0, current_health - damage)
+	if current_health == 0:
 		var dust_instance = DUST.instantiate()
 		dust_instance.global_position = global_position
-		get_tree().get_root().get_node("Arena").add_child(dust_instance)
+		arena.add_child(dust_instance)
 		ScoreManager.increase_score()
 		queue_free()
+	return current_health
 
 func attack() -> void:
 	if hurtbox.overlaps_body(player):
-		player.take_damage(attack_damage)
+		var target_health = player.take_damage(attack_damage)
+		audio_manager.play_audio(ATTACK_KILL if target_health == 0 else ATTACK_HIT, global_position)

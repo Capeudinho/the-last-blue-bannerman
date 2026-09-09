@@ -10,14 +10,16 @@ script = ExtResource("1_oo0fn")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
-offset_right = 160.0
-offset_bottom = 144.0
+offset_left = -112.0
+offset_right = 112.0
+offset_bottom = 96.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="RibbonDisplay" parent="MarginContainer" unique_id=1134606405 instance=ExtResource("1_ahhtf")]
 layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq16itv8es3jy"
-path="res://.godot/imported/arrow.png-18e607c3398c94c410f88abf48695716.ctex"
+uid="uid://cf830aojw4k7u"
+path="res://.godot/imported/archer_run.png-e716c466134caa1eb5884541466c9190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-18e607c3398c94c410f88abf48695716.ctex"]
+source_file="res://assets/sprites/archer_run.png"
+dest_files=["res://.godot/imported/archer_run.png-e716c466134caa1eb5884541466c9190.ctex"]
 
 [params]
 

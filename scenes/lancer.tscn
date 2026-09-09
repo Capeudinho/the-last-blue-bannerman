@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bowihhwvmoc8y"]
 
 [ext_resource type="Script" uid="uid://dmduuru68iqn6" path="res://scripts/lancer.gd" id="1_smn33"]
-[ext_resource type="Texture2D" uid="uid://c8hjxnknidvey" path="res://assets/sprites/lancer_sprites/Lancer_Right_Attack.png" id="2_smn33"]
-[ext_resource type="Texture2D" uid="uid://xpii1cw5four" path="res://assets/sprites/lancer_sprites/Lancer_Idle.png" id="3_5etia"]
-[ext_resource type="Texture2D" uid="uid://cvjsdxb3gxqyk" path="res://assets/sprites/lancer_sprites/Lancer_Run.png" id="4_5etia"]
+[ext_resource type="Texture2D" uid="uid://c8hjxnknidvey" path="res://assets/sprites/lancer_attack.png" id="2_smn33"]
+[ext_resource type="Texture2D" uid="uid://xpii1cw5four" path="res://assets/sprites/lancer_idle.png" id="3_5etia"]
+[ext_resource type="Texture2D" uid="uid://cvjsdxb3gxqyk" path="res://assets/sprites/lancer_move.png" id="4_5etia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7iw"]
+atlas = ExtResource("2_smn33")
+region = Rect2(640, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6htk5"]
 atlas = ExtResource("2_smn33")
@@ -12,10 +16,6 @@ region = Rect2(0, 0, 320, 320)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c17vh"]
 atlas = ExtResource("2_smn33")
 region = Rect2(320, 0, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h7iw"]
-atlas = ExtResource("2_smn33")
-region = Rect2(640, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqfln"]
 atlas = ExtResource("3_5etia")
@@ -92,6 +92,9 @@ region = Rect2(1600, 0, 320, 320)
 [sub_resource type="SpriteFrames" id="SpriteFrames_axuxu"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7iw")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6htk5")
 }, {
@@ -197,7 +200,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vslbo"]
-size = Vector2(135, 33)
+size = Vector2(128, 32)
 
 [node name="Lancer" type="CharacterBody2D" unique_id=1722871735 groups=["enemies"]]
 z_index = 1
@@ -208,9 +211,8 @@ script = ExtResource("1_smn33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=143879905]
 sprite_frames = SubResource("SpriteFrames_axuxu")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.6619408
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=627184021]
 shape = SubResource("RectangleShape2D_dp28g")
@@ -221,7 +223,13 @@ libraries/ = SubResource("AnimationLibrary_5fsgc")
 [node name="Hurtbox" type="Area2D" parent="." unique_id=288337563]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=564190241]
-position = Vector2(83.5, 14.5)
+position = Vector2(80, 16)
 shape = SubResource("RectangleShape2D_vslbo")
 
+[node name="ActionTimer" type="Timer" parent="." unique_id=453619070]
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1371251836]
+
 [connection signal="animation_finished" from="AttackAnimationPlayer" to="." method="_on_attack_animation_player_animation_finished"]
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

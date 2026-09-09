@@ -1,7 +1,8 @@
-extends Control
+extends TextureButton
 
 const CURSOR_DEFAULT = preload("res://assets/sprites/cursor_default.png")
 const CURSOR_POINTER = preload("res://assets/sprites/cursor_pointer.png")
+const BUTTON_PRESS = preload("res://assets/audios/button_press.ogg")
 
 enum RibbonColor {BLUE, RED, BLACK}
 
@@ -16,6 +17,9 @@ enum RibbonColor {BLUE, RED, BLACK}
 func _ready() -> void:
 	set_text(text)
 	set_color(color)
+
+func _on_pressed() -> void:
+	GlobalAudioManager.play_audio(BUTTON_PRESS)
 
 func _on_mouse_entered() -> void:
 	Input.set_custom_mouse_cursor(CURSOR_POINTER, Input.CURSOR_ARROW, Vector2(22, 17))

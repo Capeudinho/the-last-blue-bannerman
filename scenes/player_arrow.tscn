@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cb7i6wo6mvhio"]
 
-[ext_resource type="Script" uid="uid://b4b84xrx8s1o6" path="res://scripts/arrow.gd" id="1_23jat"]
-[ext_resource type="Texture2D" uid="uid://dq16itv8es3jy" path="res://assets/sprites/arrow.png" id="1_umosx"]
+[ext_resource type="Script" uid="uid://b4b84xrx8s1o6" path="res://scripts/player_arrow.gd" id="1_23jat"]
+[ext_resource type="Texture2D" uid="uid://dq16itv8es3jy" path="res://assets/sprites/player_arrow.png" id="1_umosx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ys3"]
 size = Vector2(32, 8)
 
-[node name="Arrow" type="RigidBody2D" unique_id=244705788]
+[node name="PlayerArrow" type="RigidBody2D" unique_id=244705788]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 0

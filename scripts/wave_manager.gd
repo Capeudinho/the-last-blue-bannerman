@@ -2,9 +2,12 @@ extends Node2D
 
 const KNIGHT = preload("res://scenes/knight.tscn")
 const LANCER = preload("res://scenes/lancer.tscn")
+const PAWN = preload("res://scenes/pawn.tscn")
+const ARCHER = preload("res://scenes/archer.tscn")
 
+@onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var entries = get_tree().get_nodes_in_group("entries")
-@onready var enemies = [KNIGHT, LANCER]
+@onready var enemies = [KNIGHT, LANCER, PAWN, ARCHER]
 @onready var interval_timer: Timer = $IntervalTimer
 @onready var wave_timer: Timer = $WaveTimer
 
@@ -37,7 +40,7 @@ func _physics_process(_delta: float) -> void:
 				var chosen_entry = entries.pick_random()
 				var chosen_enemy_instance = chosen_enemy.instantiate()
 				chosen_enemy_instance.global_position = chosen_entry.global_position
-				get_tree().get_root().get_node("Arena").add_child(chosen_enemy_instance)
+				arena.add_child(chosen_enemy_instance)
 
 func _on_interval_timer_timeout() -> void:
 	is_interval = false

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b15eopwen5wv7"]
+
+[ext_resource type="Script" uid="uid://ctul5epexyptc" path="res://scripts/enemy_arrow.gd" id="1_gaww0"]
+[ext_resource type="Texture2D" uid="uid://cj84i4u02ur6e" path="res://assets/sprites/enemy_arrow.png" id="2_gaww0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ys3"]
+size = Vector2(32, 8)
+
+[node name="EnemyArrow" type="RigidBody2D" unique_id=244705788]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 0
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_gaww0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1578244442]
+texture = ExtResource("2_gaww0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363113387]
+shape = SubResource("RectangleShape2D_p6ys3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
