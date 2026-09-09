@@ -26,6 +26,10 @@ window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://utpeyp2a3k6t"
 mouse_cursor/custom_image_hotspot=Vector2(22, 17)
 
+[dotnet]
+
+project/assembly_name="The Last Blue Bannerman"
+
 [global_group]
 
 enemies=""

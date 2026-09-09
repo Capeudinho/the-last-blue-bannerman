@@ -1,12 +1,12 @@
 extends Node2D
 
 const KNIGHT = preload("res://scenes/knight.tscn")
+const LANCER = preload("res://scenes/lancer.tscn")
 
 @onready var entries = get_tree().get_nodes_in_group("entries")
-@onready var enemies = [KNIGHT]
+@onready var enemies = [KNIGHT, LANCER]
 @onready var interval_timer: Timer = $IntervalTimer
 @onready var wave_timer: Timer = $WaveTimer
-
 
 var is_interval = false
 var is_wave = false
