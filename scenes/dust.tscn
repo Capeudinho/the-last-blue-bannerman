@@ -82,6 +82,8 @@ animations = [{
 }]
 
 [node name="Dust" type="AnimatedSprite2D" unique_id=937863717]
+z_index = 1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_c43mm")
 autoplay = "default"
 script = ExtResource("2_n7s5k")

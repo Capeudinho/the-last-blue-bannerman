@@ -72,5 +72,4 @@ z_index = 2
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vslbo")
 autoplay = "default"
-frame_progress = 0.71709734
 script = ExtResource("2_vplca")

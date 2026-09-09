@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dc3vgfb1elk6j"]
+
+[ext_resource type="Texture2D" uid="uid://duntll2vhdrng" path="res://assets/sprites/stump.png" id="1_c6xkf"]
+[ext_resource type="Script" uid="uid://cypk140dpe3hl" path="res://scripts/stump.gd" id="2_qs86r"]
+
+[node name="Stump" type="Sprite2D" unique_id=600968158]
+y_sort_enabled = true
+texture = ExtResource("1_c6xkf")
+script = ExtResource("2_qs86r")

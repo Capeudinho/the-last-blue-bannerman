@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cvlmrd124xk2n"]
+
+[ext_resource type="Texture2D" uid="uid://dp2ke1xpsv6w0" path="res://assets/sprites/rock_1.png" id="1_p2d0s"]
+[ext_resource type="Texture2D" uid="uid://ba7p20c0ui0qe" path="res://assets/sprites/rock_2.png" id="2_vqvgd"]
+[ext_resource type="Texture2D" uid="uid://bsqkbpg24o2ky" path="res://assets/sprites/rock_3.png" id="3_rmkyt"]
+[ext_resource type="Texture2D" uid="uid://b8gou5mx51jkq" path="res://assets/sprites/rock_4.png" id="4_h6o6c"]
+[ext_resource type="Script" uid="uid://cs2uajws7p2ut" path="res://scripts/rock.gd" id="5_88vqh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6ys3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p2d0s")
+}],
+"loop": 1,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vqvgd")
+}],
+"loop": 1,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rmkyt")
+}],
+"loop": 1,
+"name": &"default_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h6o6c")
+}],
+"loop": 1,
+"name": &"default_4",
+"speed": 5.0
+}]
+
+[node name="Rock" type="AnimatedSprite2D" unique_id=1415416528]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_p6ys3")
+animation = &"default_1"
+script = ExtResource("5_88vqh")

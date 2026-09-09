@@ -77,7 +77,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_3q610")
 
 [node name="ExitRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=507102315 instance=ExtResource("2_ekxnf")]
 layout_mode = 2
-text = "Exit"
+text = "Exit Game"
 color = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayRibbonButton" to="." method="_on_play_ribbon_button_pressed"]
