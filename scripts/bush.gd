@@ -9,6 +9,5 @@ func _ready() -> void:
 	global_position.y = global_position.y + randf_range(-position_range, position_range)
 	var random_animation = animations.pick_random()
 	var frame_count = sprite_frames.get_frame_count(random_animation)
-	animation = random_animation
 	frame = randi_range(0, frame_count)
 	play(random_animation)

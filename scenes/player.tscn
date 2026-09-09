@@ -190,7 +190,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=218068341 groups=["players"]]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 collision_mask = 16
 script = ExtResource("1_g2els")

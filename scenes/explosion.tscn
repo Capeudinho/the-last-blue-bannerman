@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="AnimatedSprite2D" unique_id=1583301075]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vslbo")
 autoplay = "default"

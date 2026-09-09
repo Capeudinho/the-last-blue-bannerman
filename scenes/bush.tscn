@@ -254,6 +254,7 @@ animations = [{
 }]
 
 [node name="Bush" type="AnimatedSprite2D" unique_id=1964025316]
+z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vslbo")
 animation = &"default_1"

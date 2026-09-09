@@ -1,9 +1,49 @@
 [gd_scene format=3 uid="uid://dc3vgfb1elk6j"]
 
-[ext_resource type="Texture2D" uid="uid://duntll2vhdrng" path="res://assets/sprites/stump.png" id="1_c6xkf"]
+[ext_resource type="Texture2D" uid="uid://duntll2vhdrng" path="res://assets/sprites/stump_1.png" id="1_c6xkf"]
+[ext_resource type="Texture2D" uid="uid://b2ehsb8pk0knm" path="res://assets/sprites/stump_2.png" id="2_hnrxv"]
 [ext_resource type="Script" uid="uid://cypk140dpe3hl" path="res://scripts/stump.gd" id="2_qs86r"]
+[ext_resource type="Texture2D" uid="uid://d4e84hfcjiak4" path="res://assets/sprites/stump_3.png" id="3_2cn8x"]
+[ext_resource type="Texture2D" uid="uid://c83c14exfqoc8" path="res://assets/sprites/stump_4.png" id="4_a0sn3"]
 
-[node name="Stump" type="Sprite2D" unique_id=600968158]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vslbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c6xkf")
+}],
+"loop": 1,
+"name": &"default_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hnrxv")
+}],
+"loop": 1,
+"name": &"default_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2cn8x")
+}],
+"loop": 1,
+"name": &"default_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a0sn3")
+}],
+"loop": 1,
+"name": &"default_4",
+"speed": 5.0
+}]
+
+[node name="Stump" type="AnimatedSprite2D" unique_id=2088685607]
+z_index = 1
 y_sort_enabled = true
-texture = ExtResource("1_c6xkf")
+sprite_frames = SubResource("SpriteFrames_vslbo")
+animation = &"default_4"
 script = ExtResource("2_qs86r")

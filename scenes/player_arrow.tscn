@@ -7,7 +7,7 @@
 size = Vector2(32, 8)
 
 [node name="PlayerArrow" type="RigidBody2D" unique_id=244705788]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 collision_layer = 0
 collision_mask = 2

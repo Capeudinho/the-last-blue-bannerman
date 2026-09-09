@@ -1,6 +1,9 @@
 extends AnimatedSprite2D
 
-func _ready() -> void:
+var animations = ["default_1", "default_2", "default_3", "default_4"]
 
-	var frame_count = sprite_frames.get_frame_count("default")
+func _ready() -> void:
+	var random_animation = animations.pick_random()
+	var frame_count = sprite_frames.get_frame_count(random_animation)
 	frame = randi_range(0, frame_count)
+	play(random_animation)

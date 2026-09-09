@@ -42,6 +42,7 @@ animations = [{
 }]
 
 [node name="Rock" type="AnimatedSprite2D" unique_id=1415416528]
+z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_p6ys3")
 animation = &"default_1"
