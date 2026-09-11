@@ -71,6 +71,7 @@ func take_damage(damage: int) -> int:
 	if current_health == 0:
 		is_dead = true
 		visible = false
+		set_collision_layer_value(1, false)
 		player_died.emit()
 		var dust_instance = DUST.instantiate()
 		dust_instance.global_position = global_position

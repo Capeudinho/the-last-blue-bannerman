@@ -50,7 +50,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_cwb3k")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "[wave amp=8 freq=8]You Died At Last[/wave]"
+text = "[wave amp=8 freq=8]You Died at Last[/wave]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -89,7 +89,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_vslbo")
 
 [node name="MainRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=271838636 instance=ExtResource("3_ccgoi")]
 layout_mode = 2
-text = "Back To Menu"
+text = "Back to Menu"
 color = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayRibbonButton" to="." method="_on_play_ribbon_button_pressed"]

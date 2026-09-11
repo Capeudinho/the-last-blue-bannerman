@@ -8,6 +8,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3q610"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vslbo"]
+
 [node name="MainMenu" type="Control" unique_id=1497988375]
 layout_mode = 3
 anchors_preset = 15
@@ -28,15 +30,12 @@ color = Color(0.24313726, 0.5254902, 0.59607846, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=234241930]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -198.0
-offset_top = -61.5
-offset_right = 198.0
-offset_bottom = 61.5
+offset_top = -309.0
+offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -76,6 +75,48 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_3q610")
 layout_mode = 2
 text = "Exit Game"
 color = 2
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1357238924]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxEmpty_i7y4x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1119200268]
+layout_mode = 2
+
+[node name="TitleRichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=737672160]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/paragraph_separation = 16
+theme_override_fonts/normal_font = ExtResource("1_l6cm7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "WASD
+[color=1f434d]Click or Hold[/color] LMB
+[color=1f434d]Click[/color] RMB"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=289622850]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vslbo")
+
+[node name="TitleRichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=336586951]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/paragraph_separation = 16
+theme_override_fonts/normal_font = ExtResource("1_l6cm7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Move
+Shoot
+Dash"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayRibbonButton" to="." method="_on_play_ribbon_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitRibbonButton" to="." method="_on_exit_ribbon_button_pressed"]
