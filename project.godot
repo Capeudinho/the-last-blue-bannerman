@@ -25,6 +25,7 @@ TransitionManager="*uid://d4ldw5norfd8r"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://utpeyp2a3k6t"
