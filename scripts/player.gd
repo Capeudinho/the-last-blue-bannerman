@@ -6,6 +6,7 @@ const SHOOT_START = preload("res://assets/audios/shoot_start.ogg")
 const DASH_START = preload("res://assets/audios/dash_start.ogg")
 
 signal player_died()
+signal dash_ended()
 
 @onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var audio_manager: Node2D = arena.get_node("Map/AudioManager")
@@ -45,6 +46,7 @@ func _physics_process(_delta: float) -> void:
 		dash_direction = global_position.direction_to(get_global_mouse_position())
 		set_collision_layer_value(1, false)
 		set_collision_layer_value(3, true)
+		set_collision_mask_value(9, false)
 		dash_animation_player.play("dash")
 		audio_manager.play_audio(DASH_START, global_position)
 		
@@ -60,6 +62,8 @@ func _on_dash_animation_player_animation_finished(anim_name: StringName) -> void
 		dash_direction = null
 		set_collision_layer_value(1, true)
 		set_collision_layer_value(3, false)
+		set_collision_mask_value(9, true)
+		dash_ended.emit()
 
 func _on_shoot_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "shoot":
@@ -67,6 +71,8 @@ func _on_shoot_animation_player_animation_finished(anim_name: StringName) -> voi
 		shoot_position = null
 		
 func take_damage(damage: int) -> int:
+	if is_dead:
+		return current_health
 	current_health = max(0, current_health - damage)
 	if current_health == 0:
 		is_dead = true

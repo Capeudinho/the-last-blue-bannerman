@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvlmrd124xk2n" path="res://scenes/rock.tscn" id="9_naajo"]
 [ext_resource type="PackedScene" uid="uid://dc3vgfb1elk6j" path="res://scenes/stump.tscn" id="10_41jku"]
 [ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="11_pause1"]
+[ext_resource type="PackedScene" path="res://scenes/puddle.tscn" id="12_puddle1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olpmc"]
 texture = ExtResource("1_wl4x5")
@@ -3517,6 +3518,11 @@ shape = SubResource("SegmentShape2D_wtmd5")
 
 [node name="Bottom" type="CollisionShape2D" parent="Map/ArenaBoundaries" unique_id=709016118]
 shape = SubResource("SegmentShape2D_7i5t5")
+
+[node name="Puddles" type="Node2D" parent="Map" unique_id=3312244301]
+
+[node name="Puddle" parent="Map/Puddles" unique_id=3312244302 instance=ExtResource("12_puddle1")]
+position = Vector2(384, 128)
 
 [node name="WaveManager" type="Node2D" parent="Map" unique_id=1111944081]
 script = ExtResource("4_xdvfk")
