@@ -84,6 +84,91 @@ animations = [{
 "texture": SubResource("AtlasTexture_acymy")
 }],
 "loop": 1,
+"name": &"warn",
+"speed": 13.75
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj5ht"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u77ag"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25pby"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o55yk"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gw5g"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4n0b"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evgw2"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkghk"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhu2b"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hib2"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qlhu"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vslbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj5ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u77ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25pby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o55yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gw5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4n0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evgw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkghk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhu2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hib2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qlhu")
+}],
+"loop": 0,
 "name": &"hurt",
 "speed": 13.75
 }]
@@ -120,15 +205,15 @@ y_sort_enabled = true
 collision_layer = 0
 script = ExtResource("1_pdf5d")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053608819]
+[node name="WarnAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1593056005]
 modulate = Color(1, 1, 1, 0.5)
-texture = ExtResource("2_uj5ht")
-region_enabled = true
-region_rect = Rect2(960, 0, 192, 192)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1063383328]
-visible = false
 sprite_frames = SubResource("SpriteFrames_uj5ht")
+animation = &"warn"
+autoplay = "warn"
+
+[node name="HurtAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=473907915]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vslbo")
 animation = &"hurt"
 autoplay = "hurt"
 
