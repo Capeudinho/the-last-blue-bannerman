@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/puddle.gd" id="1_puddle1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puddle1"]
+radius = 52.0
+
+[node name="Puddle" type="Node2D" unique_id=3312244201]
+z_index = 2
+script = ExtResource("1_puddle1")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=3312244202]
+color = Color(0.17, 0.34, 0.48, 0.85)
+polygon = PackedVector2Array(-64, 0, -48, -30, -16, -42, 20, -38, 52, -14, 60, 14, 34, 36, -4, 42, -40, 30, -60, 10)
+
+[node name="Obstacle" type="StaticBody2D" parent="." unique_id=3312244203]
+collision_layer = 288
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle" unique_id=3312244204]
+shape = SubResource("CircleShape2D_puddle1")
+
+[node name="Hazard" type="Area2D" parent="." unique_id=3312244205]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=3312244206]
+shape = SubResource("CircleShape2D_puddle1")
