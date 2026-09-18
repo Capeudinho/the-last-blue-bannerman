@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const DUST = preload("res://scenes/dust.tscn")
 const ENEMY_CAST = preload("res://scenes/enemy_cast.tscn")
-const CAST_START = preload("res://assets/audios/shoot_start.ogg")
+const CAST_START = preload("res://assets/audios/cast_start.ogg")
 
 @onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var audio_manager: Node2D = arena.get_node("Map/AudioManager")
@@ -23,7 +23,7 @@ var can_attack = true
 var move_speed = 150
 var idle_time = 4
 var move_time = 4
-var cast_time = 1
+var cast_time = 4
 var cast_damage = 1
 var maximum_health = 1
 var current_health = maximum_health

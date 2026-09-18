@@ -1,25 +1,24 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dlrge4ubywmrv"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause1"]
+[ext_resource type="Script" uid="uid://dd5ewpajvypw0" path="res://scripts/pause_menu.gd" id="1_pause1"]
 [ext_resource type="FontFile" uid="uid://df314dt82gjw0" path="res://assets/fonts/alagard.ttf" id="2_cwb3k"]
 [ext_resource type="PackedScene" uid="uid://kr2pswytlc3r" path="res://scenes/ribbon_button.tscn" id="3_ccgoi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pause1"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=3312244101]
+[node name="PauseMenu" type="CanvasLayer" unique_id=-982723195]
 process_mode = 3
-visible = false
 script = ExtResource("1_pause1")
 
-[node name="Panel" type="ColorRect" parent="." unique_id=3312244102]
+[node name="Panel" type="ColorRect" parent="." unique_id=-982723194]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.6)
+color = Color(0, 0, 0, 0.5)
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=3312244103]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=-982723193]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,38 +29,37 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=3312244104]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=-982723192]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="TitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=3312244105]
+[node name="TitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=-982723191]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_cwb3k")
 theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
-text = "Paused"
+text = "[wave amp=8 freq=8]Paused[/wave]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=3312244106]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=-982723190]
 layout_mode = 2
 theme_override_constants/separation = 64
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pause1")
 
-[node name="ResumeRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=3312244107 instance=ExtResource("3_ccgoi")]
+[node name="ResumeRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=-982723189 instance=ExtResource("3_ccgoi")]
 layout_mode = 2
 text = "Resume"
-color = 1
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=3312244108]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=-982723188]
 layout_mode = 2
 theme_override_constants/separation = 16
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pause1")
 
-[node name="EndRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=3312244109 instance=ExtResource("3_ccgoi")]
+[node name="EndRibbonButton" parent="MarginContainer/VBoxContainer" unique_id=-982723187 instance=ExtResource("3_ccgoi")]
 layout_mode = 2
 text = "End Run"
 color = 2

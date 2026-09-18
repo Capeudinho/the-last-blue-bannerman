@@ -93,7 +93,8 @@ theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "WASD
 [color=1f434d]Click or Hold[/color] LMB
-[color=1f434d]Click[/color] RMB"
+[color=1f434d]Click[/color] RMB
+P"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 2
@@ -113,7 +114,8 @@ theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Move
 Shoot
-Dash"
+Dash
+Pause"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1

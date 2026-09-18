@@ -197,7 +197,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_swy27"]
-radius = 256.0
+radius = 384.0
 
 [node name="Monk" type="CharacterBody2D" unique_id=1722871735 groups=["enemies"]]
 z_index = 2

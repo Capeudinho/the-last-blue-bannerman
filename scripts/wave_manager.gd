@@ -5,6 +5,7 @@ const LANCER = preload("res://scenes/lancer.tscn")
 const PAWN = preload("res://scenes/pawn.tscn")
 const ARCHER = preload("res://scenes/archer.tscn")
 const MONK = preload("res://scenes/monk.tscn")
+const SHEEP = preload("res://scenes/sheep.tscn")
 
 @onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var entries = get_tree().get_nodes_in_group("entries")
@@ -36,12 +37,17 @@ func _physics_process(_delta: float) -> void:
 		if current_wave_count != 0 and !is_wave:
 			is_wave = true
 			wave_timer.start(wave_time)
-			for element in range(wave_total):
+			for element in range(randi_range(floor(0.5 * wave_total), wave_total)):
 				var chosen_enemy = enemies.pick_random()
 				var chosen_entry = entries.pick_random()
 				var chosen_enemy_instance = chosen_enemy.instantiate()
 				chosen_enemy_instance.global_position = chosen_entry.global_position
 				arena.add_child(chosen_enemy_instance)
+			for element in range(randi_range(0, floor(0.25 * wave_total))):
+				var chosen_entry = entries.pick_random()
+				var sheep_instance = SHEEP.instantiate()
+				sheep_instance.global_position = chosen_entry.global_position
+				arena.add_child(sheep_instance)
 
 func _on_interval_timer_timeout() -> void:
 	is_interval = false

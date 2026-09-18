@@ -1,5 +1,9 @@
 extends Area2D
 
+const CAST_HIT = preload("res://assets/audios/cast_hit.ogg")
+const CAST_KILL = preload("res://assets/audios/cast_kill.ogg")
+const CAST_MISS = preload("res://assets/audios/cast_miss.ogg")
+
 @onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var audio_manager: Node2D = arena.get_node("Map/AudioManager")
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("players")
@@ -22,6 +26,7 @@ func _on_timer_timeout() -> void:
 	animated_sprite_2d.visible = true
 	animated_sprite_2d.play()
 	animation_player.play("cast")
+	audio_manager.play_audio(CAST_MISS, global_position)
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "cast":
@@ -30,4 +35,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func hurt() -> void:
 	if overlaps_body(player):
 		var target_health = player.take_damage(cast_damage)
-		# audio_manager.play_audio(ATTACK_KILL if target_health == 0 else ATTACK_HIT, global_position)
+		audio_manager.play_audio(CAST_KILL if target_health == 0 else CAST_HIT, global_position)
