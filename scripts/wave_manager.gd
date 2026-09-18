@@ -37,13 +37,13 @@ func _physics_process(_delta: float) -> void:
 		if current_wave_count != 0 and !is_wave:
 			is_wave = true
 			wave_timer.start(wave_time)
-			for element in range(randi_range(floor(0.5 * wave_total), wave_total)):
+			for element in range(randi_range(wave_total - 1, wave_total)):
 				var chosen_enemy = enemies.pick_random()
 				var chosen_entry = entries.pick_random()
 				var chosen_enemy_instance = chosen_enemy.instantiate()
 				chosen_enemy_instance.global_position = chosen_entry.global_position
 				arena.add_child(chosen_enemy_instance)
-			for element in range(randi_range(0, floor(0.25 * wave_total))):
+			for element in range(randi_range(0, 1)):
 				var chosen_entry = entries.pick_random()
 				var sheep_instance = SHEEP.instantiate()
 				sheep_instance.global_position = chosen_entry.global_position
