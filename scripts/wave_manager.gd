@@ -4,10 +4,11 @@ const KNIGHT = preload("res://scenes/knight.tscn")
 const LANCER = preload("res://scenes/lancer.tscn")
 const PAWN = preload("res://scenes/pawn.tscn")
 const ARCHER = preload("res://scenes/archer.tscn")
+const MONK = preload("res://scenes/monk.tscn")
 
 @onready var arena: Node2D = get_tree().get_root().get_node("Arena")
 @onready var entries = get_tree().get_nodes_in_group("entries")
-@onready var enemies = [KNIGHT, LANCER, PAWN, ARCHER]
+@onready var enemies = [KNIGHT, LANCER, PAWN, ARCHER, MONK]
 @onready var interval_timer: Timer = $IntervalTimer
 @onready var wave_timer: Timer = $WaveTimer
 

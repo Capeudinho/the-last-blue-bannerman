@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://ccj7i5sdwwdm6"]
+
+[ext_resource type="Script" uid="uid://cm47ytnsmeqpf" path="res://scripts/enemy_cast.gd" id="1_pdf5d"]
+[ext_resource type="Texture2D" uid="uid://3goibbre601j" path="res://assets/sprites/enemy_cast.png" id="2_uj5ht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4h81"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4khe"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6s22"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr1tn"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvkv5"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjofh"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld02y"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnrmu"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3djbf"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdnac"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1728, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acymy"]
+atlas = ExtResource("2_uj5ht")
+region = Rect2(1920, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj5ht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4h81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4khe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6s22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr1tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvkv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjofh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld02y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnrmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3djbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdnac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acymy")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 13.75
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4h81"]
+size = Vector2(64, 32)
+
+[sub_resource type="Animation" id="Animation_uj5ht"]
+resource_name = "hurt"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hurt"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l4h81"]
+_data = {
+&"cast": SubResource("Animation_uj5ht")
+}
+
+[node name="EnemyCast" type="Area2D" unique_id=1992561280]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 0
+script = ExtResource("1_pdf5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053608819]
+modulate = Color(1, 1, 1, 0.5)
+texture = ExtResource("2_uj5ht")
+region_enabled = true
+region_rect = Rect2(960, 0, 192, 192)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1063383328]
+visible = false
+sprite_frames = SubResource("SpriteFrames_uj5ht")
+animation = &"hurt"
+autoplay = "hurt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1550325578]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_l4h81")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1261747319]
+libraries/ = SubResource("AnimationLibrary_l4h81")
+
+[node name="Timer" type="Timer" parent="." unique_id=2098240462]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
