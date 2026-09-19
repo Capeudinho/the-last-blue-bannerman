@@ -15,6 +15,10 @@ Os diferenciais do jogo são seu deliberado minimalismo e simplicidade, incluind
 
 A principal inspiração para o The Last Blue Bannerman é o jogo Hyper Light Drifter ([Hyper Light Drifter on Wikipedia](https://en.wikipedia.org/wiki/Hyper_Light_Drifter)).
 
+## Vídeo de apresentação
+
+[Video on Drive](https://drive.google.com/file/d/1Bc-sbx1zJ_Mme1eo5Hb-dVZ3LDIMf7Sl/view?usp=drive_link)
+
 ## Créditos
 
 |Crédito|Link|
